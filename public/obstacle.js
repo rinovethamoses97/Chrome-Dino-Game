@@ -11,7 +11,7 @@ class Obstacle{
     show(){
         stroke(0);
         // rect(this.pos.x,this.pos.y,this.width,this.height);
-        image(this.img,this.pos.x,this.pos.y,this.width,this.height);
+        image(this.img,this.pos.x-10,this.pos.y-10,this.width+20,this.height+10);
     }
     update(){  
         this.velcoity.add(this.acceleration);
