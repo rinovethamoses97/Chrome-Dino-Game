@@ -16,7 +16,7 @@ function setup(){
     dino=new Dino(dinoimage);
 }
 function draw(){
-    if(frameCount%(80-floor(speed))==0){
+    if(frameCount%80==0){
         obstacles.push(new Obstacle(obstacleimage,speed));
         speed+=0.15
     }
