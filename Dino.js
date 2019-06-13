@@ -2,11 +2,12 @@ class Dino{
     constructor(){
         this.width=30;
         this.height=50;
-        this.pos=createVector(20,height-this.height);
+        this.pos=createVector(100,height-this.height);
         this.velcoity=createVector(0,0);
         this.gravity=createVector(0,0);
         this.acceleration=createVector(0,0);
         this.inAir=false;
+        this.score=0;
     }
     show(){
         stroke(255);
@@ -29,5 +30,8 @@ class Dino{
         this.inAir=true;
         this.gravity.y=0.3;
         this.velcoity.y=-10;    
+    }
+    hits(obstacle){
+        return collideRectRect(this.pos.x,this.pos.y,this.width,this.height,obstacle.pos.x,obstacle.pos.y,obstacle.width,obstacle.height);
     }
 }
