@@ -11,9 +11,9 @@ class Dino{
         this.img=image;
     }
     show(){
-        stroke(255);
+        stroke(0);
         fill(0);
-        rect(this.pos.x,this.pos.y,this.width,this.height);
+        // rect(this.pos.x,this.pos.y,this.width,this.height);
         image(this.img,this.pos.x,this.pos.y,this.width,this.height);
     }
     update(){

@@ -2,6 +2,7 @@ var dino;
 var obstacles=[];
 var dinoimage;
 var obstacleimage;
+var speed=5;
 function preload(){
     dinoimage=loadImage("./dino.png");
     obstacleimage=loadImage("./obstacle1.png");
@@ -12,8 +13,9 @@ function setup(){
     dino=new Dino(dinoimage);
 }
 function draw(){
-    if(frameCount%80==0){
-        obstacles.push(new Obstacle(obstacleimage));
+    if(frameCount%(80-floor(speed))==0){
+        obstacles.push(new Obstacle(obstacleimage,speed));
+        speed+=0.15
     }
     background(255);
     stroke(0);
@@ -40,6 +42,7 @@ function draw(){
         }
     }
     stroke(0);
+    strokeWeight(1);
     noFill();
     text("Score= "+dino.score,730,30);
 }
