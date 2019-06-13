@@ -3,11 +3,14 @@ var obstacles=[];
 var dinoimage;
 var obstacleimage;
 var speed=5;
+var backgroundSound;
 function preload(){
     dinoimage=loadImage("./dino.png");
     obstacleimage=loadImage("./obstacle1.png");
+    backgroundSound=loadSound("./backgroundSong.mp3");
 }
 function setup(){
+    backgroundSound.play();
     createCanvas(800,300);
     background(255);
     dino=new Dino(dinoimage);
@@ -16,6 +19,9 @@ function draw(){
     if(frameCount%(80-floor(speed))==0){
         obstacles.push(new Obstacle(obstacleimage,speed));
         speed+=0.15
+    }
+    if(!backgroundSound.isPlaying()){
+        backgroundSound.play();
     }
     background(255);
     stroke(0);
@@ -28,6 +34,7 @@ function draw(){
         obstacles[i].show();
         if(dino.hits(obstacles[i])){
             alert("Game Over");
+            backgroundSound.stop();
             noLoop();
         }
         if(obstacles[i].pos.x+obstacles[i].width<dino.pos.x && !obstacles[i].crossed){
