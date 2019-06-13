@@ -1,19 +1,24 @@
 class Obstacle{
     constructor(){
-        this.width=floor(random(30,40));
-        this.height=floor(random(40,50));
+        this.width=floor(random(30,60));
+        this.height=floor(random(40,70));
         this.pos=createVector(width,height-this.height);
         this.velcoity=createVector(-5,0);
         this.acceleration=createVector(0,0);
         this.crossed=false;
     }
     show(){
-        stroke(255);
+        stroke(255); 
         fill(255,0,0);
         rect(this.pos.x,this.pos.y,this.width,this.height);
+    }
+    increaseSpeed(){
+        this.acceleration.x=-0.03
     }
     update(){  
         this.velcoity.add(this.acceleration);
         this.pos.add(this.velcoity);
+        this.acceleration.x=0
+        this.acceleration.y=0;
     }
 }

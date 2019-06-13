@@ -11,7 +11,7 @@ class Dino{
     }
     show(){
         stroke(255);
-        noFill();
+        fill(0);
         rect(this.pos.x,this.pos.y,this.width,this.height);
     }
     update(){

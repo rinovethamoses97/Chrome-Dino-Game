@@ -1,8 +1,12 @@
 var dino;
 var obstacles=[];
+var dinoimage;
+function preload(){
+    
+}
 function setup(){
     createCanvas(800,300);
-    background(0);
+    background(255);
     dino=new Dino();
 }
 function draw(){
@@ -10,7 +14,10 @@ function draw(){
 
         obstacles.push(new Obstacle());
     }
-    background(0);
+    background(255);
+    stroke(0);
+    strokeWeight(1.3);
+    line(0,height,width,height);
     dino.update();
     dino.show();
     for(var i in obstacles){
@@ -31,7 +38,7 @@ function draw(){
             i--;
         }
     }
-    stroke(255);
+    stroke(0);
     noFill();
     text("Score= "+dino.score,730,30);
 }
