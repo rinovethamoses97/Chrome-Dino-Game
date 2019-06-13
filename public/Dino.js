@@ -1,18 +1,20 @@
 class Dino{
-    constructor(){
-        this.width=30;
-        this.height=50;
-        this.pos=createVector(100,height-this.height);
+    constructor(image){
+        this.width=50;
+        this.height=60;
+        this.pos=createVector(100,height-2-this.height);
         this.velcoity=createVector(0,0);
         this.gravity=createVector(0,0);
         this.acceleration=createVector(0,0);
         this.inAir=false;
         this.score=0;
+        this.img=image;
     }
     show(){
         stroke(255);
         fill(0);
         rect(this.pos.x,this.pos.y,this.width,this.height);
+        image(this.img,this.pos.x,this.pos.y,this.width,this.height);
     }
     update(){
         this.acceleration.add(this.gravity);
@@ -20,10 +22,12 @@ class Dino{
         this.pos.add(this.velcoity);
         this.acceleration.x=0;
         this.acceleration.y=0; 
-        if(this.pos.y+this.height>=height){
+        if(this.pos.y+this.height>=height-2){
             this.velcoity.y=0;
             this.gravity.y=0;
             this.inAir=false;
+            this.pos.x=100;
+            this.pos.y=height-2-this.height;
         }
     }
     jump(){

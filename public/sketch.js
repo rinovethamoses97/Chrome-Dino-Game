@@ -1,22 +1,23 @@
 var dino;
 var obstacles=[];
 var dinoimage;
+var obstacleimage;
 function preload(){
-    
+    dinoimage=loadImage("./dino.png");
+    obstacleimage=loadImage("./obstacle1.png");
 }
 function setup(){
     createCanvas(800,300);
     background(255);
-    dino=new Dino();
+    dino=new Dino(dinoimage);
 }
 function draw(){
     if(frameCount%80==0){
-
-        obstacles.push(new Obstacle());
+        obstacles.push(new Obstacle(obstacleimage));
     }
     background(255);
     stroke(0);
-    strokeWeight(1.3);
+    strokeWeight(2);
     line(0,height,width,height);
     dino.update();
     dino.show();
